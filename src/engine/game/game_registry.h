@@ -5,7 +5,7 @@
 #include <QString>
 #include <QSet>
 #include <memory>
-#include "engine/game.h"
+#include "engine/game/game.h"
 
 class GameRegistry : public QObject {
     Q_OBJECT

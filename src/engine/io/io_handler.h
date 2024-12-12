@@ -3,8 +3,8 @@
 
 #include <QString>
 #include <QList>
-#include "engine/user.h"
-#include "engine/game.h"
+#include "engine/user/user.h"
+#include "engine/game/game.h"
 
 class IOHandler
 {

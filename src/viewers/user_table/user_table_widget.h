@@ -5,9 +5,9 @@
 #include <QTableView>
 #include <QLineEdit>
 #include <QSortFilterProxyModel>
-#include "models/user_table_model.h"
-#include "models/dashboard_model.h"
-#include "viewers/user_table_context_menu.h"
+#include "models/user_table/user_table_model.h"
+#include "models/dashboard/dashboard_model.h"
+#include "viewers/user_table/user_table_context_menu.h"
 
 class UserTableWidget : public QWidget {
     Q_OBJECT

@@ -1,5 +1,5 @@
 #include "json_io_handler.h"
-#include "engine/game.h"
+#include "engine/game/game.h"
 
 JsonIOHandler::JsonIOHandler(const QString& filePath)
     : m_filePath(filePath)

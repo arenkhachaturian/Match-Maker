@@ -3,7 +3,7 @@
 
 #include <QAbstractTableModel>
 #include <QVariant>
-#include "engine/user_registry.h"
+#include "engine/user/user_registry.h"
 
 class UserTableModel : public QAbstractTableModel {
     Q_OBJECT

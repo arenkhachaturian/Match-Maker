@@ -17,9 +17,9 @@ enable_testing()
 find_package(Qt6 REQUIRED COMPONENTS Test)
 
 add_executable(test_engine
-    src/engine/user.h
-    src/engine/user.cpp
-    tests/test_user.h
+    src/engine/user/user.h
+    src/engine/user/user.cpp
+
     tests/test_user.cpp)
 
 
@@ -30,39 +30,39 @@ target_link_libraries(test_engine PRIVATE Qt6::Test)
 add_test(NAME TestEngine COMMAND test_engine)
 
 
-add_executable(test_game tests/test_game.h tests/test_game.cpp src/engine/game.cpp)
+add_executable(test_game  tests/test_game.cpp src/engine/game/game.cpp)
 target_link_libraries(test_game PRIVATE Qt6::Test)
 add_test(NAME TestGame COMMAND test_game)
 
-add_executable(test_json_io tests/test_json_io.cpp src/engine/io/json_io_handler.cpp src/engine/user.cpp src/engine/game.cpp)
+add_executable(test_json_io tests/test_json_io.cpp src/engine/io/json_io_handler.cpp src/engine/user/user.cpp src/engine/game/game.cpp)
 target_link_libraries(test_json_io PRIVATE Qt6::Test)
 add_test(NAME TestJsonIo COMMAND test_json_io)
 
 set(ENGINE_SOURCES
-    src/engine/user.cpp
-    src/engine/user.h
-    src/engine/game.cpp
-    src/engine/game.h
+    src/engine/user/user.cpp
+    src/engine/user/user.h
+    src/engine/game/game.cpp
+    src/engine/game/game.h
     src/engine/io/io_handler.h
     src/engine/io/json_io_handler.h
     src/engine/io/json_io_handler.cpp
     src/engine/pool/user_pool_manager.cpp
     src/engine/pool/user_pool_manager.h
-    src/engine/game_executor.h
-    src/engine/game_executor.cpp
-    src/engine/user_registry.h
-    src/engine/user_registry.cpp
-    src/engine/matchmaking_engine.h
-    src/engine/matchmaking_engine.cpp
-    src/engine/game_registry.cpp
-    src/engine/game_registry.h
+    src/engine/game/game_executor.h
+    src/engine/game/game_executor.cpp
+    src/engine/user/user_registry.h
+    src/engine/user/user_registry.cpp
+    src/engine/matchmaking/matchmaking_engine.h
+    src/engine/matchmaking/matchmaking_engine.cpp
+    src/engine/game/game_registry.cpp
+    src/engine/game/game_registry.h
 )
 
-add_executable(test_user_pool_mgr tests/test_user_pool_mgr.h tests/test_user_pool_mgr.cpp ${ENGINE_SOURCES})
+add_executable(test_user_pool_mgr  tests/test_user_pool_mgr.cpp ${ENGINE_SOURCES})
 target_link_libraries(test_user_pool_mgr PRIVATE Qt6::Test)
 add_test(NAME TestUserPoolMgr COMMAND test_user_pool_mgr)
 
-add_executable(test_game_executor tests/test_game_executor.h tests/test_game_executor.cpp ${ENGINE_SOURCES})
+add_executable(test_game_executor  tests/test_game_executor.cpp ${ENGINE_SOURCES})
 target_link_libraries(test_game_executor PRIVATE Qt6::Test)
 add_test(NAME TestGameExecutor COMMAND test_game_executor)
 
@@ -76,44 +76,47 @@ add_test(NAME TestMatchMakingEngine COMMAND test_matchmaking_engine)
 
 
 set(MODEL_SOURCES
-        src/models/user_table_model.h
-        src/models/user_table_model.cpp
-        src/models/dashboard_model.cpp
-        src/models/dashboard_model.h)
+    src/models/user_table/user_table_model.h
+    src/models/user_table/user_table_model.cpp
+    src/models/dashboard/dashboard_model.cpp
+    src/models/dashboard/dashboard_model.h
+    src/models/dashboard/dashboard_serializer.h
+    src/models/dashboard/dashboard_serializer.cpp)
 
 set(VIEWER_SOURCES
-        src/viewers/user_table_widget.h
-        src/viewers/user_table_widget.cpp)
+    src/viewers/user_table/user_table_widget.h
+    src/viewers/user_table/user_table_widget.cpp
+    src/viewers/user_table/user_table_context_menu.h
+    src/viewers/user_table/user_table_context_menu.cpp
+    src/viewers/dashboard/dashboard_widget.h
+    src/viewers/dashboard/dashboard_widget.cpp
+    src/viewers/dialogs/add_user_dialog.cpp
+    src/viewers/dialogs/add_user_dialog.h
+    src/viewers/dialogs/remove_user_dialog.cpp
+    src/viewers/dialogs/remove_user_dialog.h
+    src/viewers/toolbar/app_toolbar.h
+    src/viewers/toolbar/app_toolbar.cpp
+    src/viewers/mainwindow/mainwindow.h
+    src/viewers/mainwindow/mainwindow.cpp)
+
+set(UI_FILES src/viewers/mainwindow/mainwindow.ui)
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
-        ${ENGINE_SOURCES}
-        ${MODEL_SOURCES}
-        ${VIEWER_SOURCES}
+    ${ENGINE_SOURCES}
+    ${MODEL_SOURCES}
+    ${VIEWER_SOURCES}
+    ${UI_FILES}
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(MatchMakingApp
         MANUAL_FINALIZATION
+        main.cpp
         ${PROJECT_SOURCES}
-        src/engine/pool/user_pool_manager.h src/engine/pool/user_pool_manager.cpp
-        src/engine/game_executor.h src/engine/game_executor.cpp
         tests/games/game_for_test.py
         tests/games/game.bat
-        src/engine/matchmaking_engine.h src/engine/matchmaking_engine.cpp
-        src/engine/game_registry.h src/engine/game_registry.cpp
         tests/games/always_first_wins.py
         tests/games/afw.bat
-        src/models/user_table_model.h src/models/user_table_model.cpp
-        src/viewers/dashboard_widget.h src/viewers/dashboard_widget.cpp
-        src/viewers/user_table_context_menu.h src/viewers/user_table_context_menu.cpp
-        src/viewers/add_user_dialog.h src/viewers/add_user_dialog.cpp
-        src/viewers/remove_user_dialog.cpp src/viewers/remove_user_dialog.h
-        src/models/dashboard_serializer.h src/models/dashboard_serializer.cpp
-        src/viewers/app_toolbar.h src/viewers/app_toolbar.cpp
         data.json
     )
 # Define target properties for Android with Qt 6 as:

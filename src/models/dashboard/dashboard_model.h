@@ -2,8 +2,8 @@
 #define DASHBOARD_MODEL_H
 
 #include <QAbstractItemModel>
-#include "engine/game_registry.h"
-#include "engine/user_registry.h"
+#include "engine/game/game_registry.h"
+#include "engine/user/user_registry.h"
 
 class DashboardModel : public QAbstractItemModel {
     Q_OBJECT

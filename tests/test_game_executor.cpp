@@ -1,10 +1,17 @@
 #include <QtTest/QtTest>
 #include <QSignalSpy>
-#include "engine/game_executor.h"
-#include "engine/game.h"
+#include "engine/game/game_executor.h"
+#include "engine/game/game.h"
 #include <QDebug>
-#include "test_game_executor.h"
 #include <fstream>
+
+class TestGameExecutor : public QObject {
+    Q_OBJECT
+
+private slots:
+    void testRunGameWithWinner();
+    void testRunGameWithDraw();
+};
 
 void TestGameExecutor::testRunGameWithWinner() {
     // Mock game with the Python script as executable

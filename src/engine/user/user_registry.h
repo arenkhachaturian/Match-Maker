@@ -7,7 +7,7 @@
 #include <memory>
 #include <QMutex>
 #include <QVariant>
-#include "engine/user.h"
+#include "engine/user/user.h"
 
 class UserRegistry : public QObject {
     Q_OBJECT

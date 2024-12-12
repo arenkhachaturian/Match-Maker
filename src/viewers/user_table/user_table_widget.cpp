@@ -1,8 +1,8 @@
-#include "viewers/user_table_widget.h"
-#include "models/dashboard_model.h"
+#include "viewers/user_table/user_table_widget.h"
+#include "models/dashboard/dashboard_model.h"
 #include "user_table_context_menu.h"
-#include "viewers/add_user_dialog.h"
-#include "viewers/remove_user_dialog.h"
+#include "viewers/dialogs/add_user_dialog.h"
+#include "viewers/dialogs/remove_user_dialog.h"
 #include <QVBoxLayout>
 #include <QHeaderView>
 #include <QMessageBox>

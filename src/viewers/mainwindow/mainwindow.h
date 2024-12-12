@@ -2,9 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "viewers/user_table_widget.h"
-#include "viewers/dashboard_widget.h"
-#include "viewers/app_toolbar.h"
+#include "viewers/user_table/user_table_widget.h"
+#include "viewers/dashboard/dashboard_widget.h"
+#include "viewers/toolbar/app_toolbar.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

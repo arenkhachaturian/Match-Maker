@@ -1,4 +1,16 @@
-#include "test_game.h"
+#include <QtTest/QtTest>
+#include <QSignalSpy>
+#include "engine/game/game.h"
+
+class TestGame : public QObject
+{
+    Q_OBJECT
+
+private slots:
+    void testConstructor();       // Test the constructor
+    void testSetName();           // Test setting and getting the game name
+    void testExecutablePath();    // Test setting and getting the executable path
+};
 
 void TestGame::testConstructor() {
     Game ticTacToe("Tic Tac Toe");

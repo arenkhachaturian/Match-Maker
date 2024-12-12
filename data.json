@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "username": "john_doe",
+      "firstName": "John",
+      "lastName": "Doe",
+      "preferredGames": ["Chess", "Poker"],
+      "ratings": {
+        "Chess": 10,
+        "Poker": 15
+      }
+    },
+    {
+      "username": "jane_doe",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "preferredGames": ["Tennis"],
+      "ratings": {
+        "Tennis": 8
+      }
+    },
+    {
+      "username": "alice_wonder",
+      "firstName": "Alice",
+      "lastName": "Wonder",
+      "preferredGames": ["Russian Roulette", "Dices"],
+      "ratings": {
+        "Russian Roulette": 18,
+        "Chess": 20
+      }
+    },
+    {
+      "username": "bob_smith",
+      "firstName": "Bob",
+      "lastName": "Smith",
+      "preferredGames": ["Poker", "Dices"],
+      "ratings": {
+        "Poker": 16,
+        "Dices": 12,
+        "Tennis": 6
+      }
+    },
+    {
+      "username": "eve_black",
+      "firstName": "Eve",
+      "lastName": "Black",
+      "preferredGames": ["Tennis", "Russian Roulette"],
+      "ratings": {
+        "Tennis": 7,
+        "Russian Roulette": 10
+      }
+    },
+    {
+      "username": "charlie_brown",
+      "firstName": "Charlie",
+      "lastName": "Brown",
+      "preferredGames": ["Dices", "Russian Roulette"],
+      "ratings": {
+        "Dices": 14,
+        "Russian Roulette": 9,
+        "Poker": 5
+      }
+    }
+  ],
+  "games": [
+    {
+      "name": "Chess",
+      "executablePath": "D:/projects/MatchMakingApp/tests/games/afw.bat"
+    },
+    {
+      "name": "Poker",
+      "executablePath": "D:/projects/MatchMakingApp/tests/games/game.bat"
+    },
+    {
+      "name": "Tennis",
+      "executablePath": "D:/projects/MatchMakingApp/tests/games/game.bat"
+    },
+    {
+      "name": "Russian Roulette",
+      "executablePath": "D:/projects/MatchMakingApp/tests/games/game.bat"
+    },
+    {
+      "name": "Dices",
+      "executablePath": "D:/projects/MatchMakingApp/tests/games/afw.bat"
+    }
+  ]
+}

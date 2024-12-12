@@ -1,6 +1,6 @@
 #include "add_user_dialog.h"
-#include "models/user_table_model.h"
-#include "models/dashboard_model.h"
+#include "models/user_table/user_table_model.h"
+#include "models/dashboard/dashboard_model.h"
 #include <QVBoxLayout>
 #include <QLineEdit>
 #include <QDialogButtonBox>

@@ -1,5 +1,5 @@
-#include "engine/user.h"
-#include "engine/user_registry.h"
+#include "engine/user/user.h"
+#include "engine/user/user_registry.h"
 #include <QtTest/QtTest>
 
 class TestUserRegistry : public QObject {

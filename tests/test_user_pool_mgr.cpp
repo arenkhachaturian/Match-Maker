@@ -1,7 +1,17 @@
 #include <QtTest/QtTest>
 
 #include "engine/pool/user_pool_manager.h"
-#include "test_user_pool_mgr.h"
+
+class TestUserPoolManager : public QObject {
+    Q_OBJECT
+
+private slots:
+    void testAddUser();
+    void testRemoveUser();
+    void testChangeUserState();
+    void testGetUsersByState();
+    void testGetUserState();
+};
 
 void TestUserPoolManager::testAddUser() {
     UserPoolManager pool;

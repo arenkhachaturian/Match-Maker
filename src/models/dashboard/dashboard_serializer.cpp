@@ -1,5 +1,5 @@
 #include "dashboard_serializer.h"
-#include "models/dashboard_model.h"
+#include "models/dashboard/dashboard_model.h"
 #include <QModelIndex>
 #include <QJsonArray>
 #include <QString>

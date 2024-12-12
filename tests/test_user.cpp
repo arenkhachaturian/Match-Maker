@@ -1,4 +1,30 @@
-#include "test_user.h"
+#include <QtTest/QtTest>
+#include <QSignalSpy>
+#include "engine/user/user.h"
+
+class TestUser : public QObject
+{
+    Q_OBJECT
+
+private slots:
+    // Tests for constructors
+    void testConstructorSimple();
+    void testConstructorComplex();
+
+    // Tests for getters and setters
+    void testSetAndGetFirstName();
+    void testSetAndGetLastName();
+    void testSetAndGetPreferredGames();
+    void testSetAndGetRatings();
+
+    // Tests for preferred games
+    void testAddPreferredGame();
+    void testRemovePreferredGame();
+
+    // Tests for ratings
+    void testUpdateRating();
+    void testDefaultRating();
+};
 
 void TestUser::testConstructorSimple()
 {

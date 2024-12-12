@@ -4,8 +4,8 @@
 #include <QDialog>
 #include <QString>
 #include <QSet>
-#include "models/user_table_model.h"
-#include "models/dashboard_model.h"
+#include "models/user_table/user_table_model.h"
+#include "models/dashboard/dashboard_model.h"
 
 class QLineEdit;
 class QListWidget;

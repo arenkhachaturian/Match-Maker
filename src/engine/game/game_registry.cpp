@@ -1,4 +1,4 @@
-#include "engine/game_registry.h"
+#include "engine/game/game_registry.h"
 
 GameRegistry::GameRegistry(QObject* parent)
     : QObject(parent) {}

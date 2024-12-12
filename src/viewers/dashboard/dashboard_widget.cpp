@@ -1,5 +1,5 @@
 #include "dashboard_widget.h"
-#include "models/dashboard_serializer.h"
+#include "models/dashboard/dashboard_serializer.h"
 #include <QMenu>
 #include <QFileDialog>
 #include <QFile>
@@ -8,7 +8,7 @@
 #include <QMessageBox>
 #include <QVBoxLayout>
 #include "dashboard_widget.h"
-#include "models/dashboard_model.h"
+#include "models/dashboard/dashboard_model.h"
 
 DashboardWidget::DashboardWidget(DashboardModel* model, QWidget* parent)
     : QWidget(parent), m_model(model) {

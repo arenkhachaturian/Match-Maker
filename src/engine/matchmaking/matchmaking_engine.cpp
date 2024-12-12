@@ -1,4 +1,4 @@
-#include "engine/matchmaking_engine.h"
+#include "engine/matchmaking/matchmaking_engine.h"
 #include <QDebug>
 
 MatchmakingEngine::MatchmakingEngine(UserPoolManager* userPool, UserRegistry* userRegistry, GameRegistry* gameRegistry, GameExecutor* gameExecutor, QObject* parent)

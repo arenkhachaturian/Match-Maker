@@ -1,4 +1,4 @@
-#include "models/user_table_model.h"
+#include "models/user_table/user_table_model.h"
 #include <QVariant>
 
 UserTableModel::UserTableModel(UserRegistry* userRegistry, QObject* parent)

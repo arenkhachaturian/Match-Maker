@@ -5,9 +5,9 @@
 #include <QString>
 #include <QTimer>
 #include "engine/pool/user_pool_manager.h"
-#include "engine/user_registry.h"
-#include "engine/game_registry.h"
-#include "engine/game_executor.h"
+#include "engine/user/user_registry.h"
+#include "engine/game/game_registry.h"
+#include "engine/game/game_executor.h"
 
 class MatchmakingEngine : public QObject {
     Q_OBJECT

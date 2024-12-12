@@ -1,5 +1,5 @@
 #include "remove_user_dialog.h"
-#include "models/user_table_model.h"
+#include "models/user_table/user_table_model.h"
 #include <QVBoxLayout>
 #include <QLineEdit>
 #include <QListWidget>

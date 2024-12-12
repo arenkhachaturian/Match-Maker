@@ -3,10 +3,10 @@
 #include <QString>
 #include <QDir>
 #include "engine/pool/user_pool_manager.h"
-#include "engine/user_registry.h"
-#include "engine/game_registry.h"
-#include "engine/game_executor.h"
-#include "engine/matchmaking_engine.h"
+#include "engine/user/user_registry.h"
+#include "engine/game/game_registry.h"
+#include "engine/game/game_executor.h"
+#include "engine/matchmaking/matchmaking_engine.h"
 
 class TestMatchmakingEngine : public QObject {
     Q_OBJECT

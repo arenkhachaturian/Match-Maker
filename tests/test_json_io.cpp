@@ -1,5 +1,17 @@
-#include "test_json_io.h"
-#include "engine/game.h"
+#include <QtTest/QtTest>
+#include <QSignalSpy>
+#include "engine/io/json_io_handler.h"
+#include "engine/game/game.h"
+#include "engine/user/user.h"
+
+class TestJsonIOHandler : public QObject
+{
+    Q_OBJECT
+
+private slots:
+    void testWriteAndReadUsers();
+    void testWriteAndReadGames();
+};
 
 void TestJsonIOHandler::testWriteAndReadUsers()
 {

@@ -1,8 +1,8 @@
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
-#include "viewers/user_table_widget.h"
-#include "viewers/dashboard_widget.h"
-#include "viewers/app_toolbar.h"
+#include "ui_mainwindow.h"
+#include "viewers/user_table/user_table_widget.h"
+#include "viewers/dashboard/dashboard_widget.h"
+#include "viewers/toolbar/app_toolbar.h"
 #include "mainwindow.h"
 #include <QSplitter>
 

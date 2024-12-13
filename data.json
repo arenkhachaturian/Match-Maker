@@ -69,15 +69,15 @@
     },
     {
       "name": "Poker",
-      "executablePath": "D:/projects/MatchMakingApp/tests/games/game.bat"
+      "executablePath": "D:/projects/MatchMakingApp/tests/games/afw.bat"
     },
     {
       "name": "Tennis",
-      "executablePath": "D:/projects/MatchMakingApp/tests/games/game.bat"
+      "executablePath": "D:/projects/MatchMakingApp/tests/games/afw.bat"
     },
     {
       "name": "Russian Roulette",
-      "executablePath": "D:/projects/MatchMakingApp/tests/games/game.bat"
+      "executablePath": "D:/projects/MatchMakingApp/tests/games/afw.bat"
     },
     {
       "name": "Dices",

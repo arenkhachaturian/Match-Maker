@@ -1,6 +1,8 @@
 import argparse
+import time
 
 def main():
+    time.sleep(10)
     # Set up the argument parser
     parser = argparse.ArgumentParser(description="Mock Game Simulator")
     parser.add_argument("--player1", type=str, help="Name of Player 1")

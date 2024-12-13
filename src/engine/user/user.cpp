@@ -1,11 +1,9 @@
 #include "user.h"
 
-// Constructor with only username
 User::User(const QString& username)
     : m_username(username), m_firstName(""), m_lastName("")
 {}
 
-// Constructor with username, first name, last name, preferred games, and ratings
 User::User(const QString& username,
            const QString& firstName,
            const QString& lastName,
@@ -18,7 +16,6 @@ User::User(const QString& username,
     m_ratings(ratings)
 {}
 
-// Getters
 const QString& User::getUsername() const {
     return m_username;
 }
@@ -39,7 +36,6 @@ const QMap<QString, int>& User::getRatings() const {
     return m_ratings;
 }
 
-// Setters
 void User::setFirstName(const QString& firstName) {
     m_firstName = firstName;
 }
@@ -56,22 +52,20 @@ void User::setRatings(const QMap<QString, int>& ratings) {
     m_ratings = ratings;
 }
 
-// Add/Remove games
 void User::addPreferredGame(const QString& gameName) {
-    m_preferredGames.insert(gameName); // QSet ensures uniqueness
+    m_preferredGames.insert(gameName);
 }
 
 void User::removePreferredGame(const QString& gameName) {
     m_preferredGames.remove(gameName);
 }
 
-// Ratings management
 void User::updateRating(const QString& gameName, int rating) {
     m_ratings[gameName] = rating;
 }
 
 int User::getRating(const QString& gameName) const {
-    // Return the rating for the game, or 0 if the game has no rating
+    // Return the rating for the game, or 0 if no game
     return m_ratings.value(gameName, 0);
 }
 

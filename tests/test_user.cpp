@@ -2,26 +2,22 @@
 #include <QSignalSpy>
 #include "engine/user/user.h"
 
-class TestUser : public QObject
+class TestUser final : public QObject
 {
     Q_OBJECT
 
 private slots:
-    // Tests for constructors
     void testConstructorSimple();
     void testConstructorComplex();
 
-    // Tests for getters and setters
     void testSetAndGetFirstName();
     void testSetAndGetLastName();
     void testSetAndGetPreferredGames();
     void testSetAndGetRatings();
 
-    // Tests for preferred games
     void testAddPreferredGame();
     void testRemovePreferredGame();
 
-    // Tests for ratings
     void testUpdateRating();
     void testDefaultRating();
 };
@@ -84,7 +80,7 @@ void TestUser::testAddPreferredGame()
     User user("test_user");
     user.addPreferredGame("Chess");
     QCOMPARE(user.getPreferredGames().contains("Chess"), true);
-    user.addPreferredGame("Chess"); // Should not duplicate
+    user.addPreferredGame("Chess");
     QCOMPARE(user.getPreferredGames().size(), 1);
 }
 
@@ -101,14 +97,14 @@ void TestUser::testUpdateRating()
     User user("test_user");
     user.updateRating("Chess", 3);
     QCOMPARE(user.getRating("Chess"), 3);
-    user.updateRating("Chess", 2); // Increment rating
+    user.updateRating("Chess", 2);
     QCOMPARE(user.getRating("Chess"), 2);
 }
 
 void TestUser::testDefaultRating()
 {
     User user("test_user");
-    QCOMPARE(user.getRating("NonExistentGame"), 0); // Default rating
+    QCOMPARE(user.getRating("NonExistentGame"), 0);
 }
 
 QTEST_MAIN(TestUser)

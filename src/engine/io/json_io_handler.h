@@ -8,21 +8,19 @@
 #include <QJsonArray>
 #include <QDebug>
 
-
-class JsonIOHandler : public IOHandler
+class JsonIOHandler final : public IOHandler
 {
 public:
-    explicit JsonIOHandler(const QString& filePath);
+    explicit JsonIOHandler(const QString &filePath);
 
     QList<User> readUsers() const override;
-    void writeUsers(const QList<User>& users) const override;
+    void writeUsers(const QList<User> &users) const override;
 
     QList<Game> readGames() const override;
-    void writeGames(const QList<Game>& games) const override;
+    void writeGames(const QList<Game> &games) const override;
 
 private:
     QString m_filePath;
 };
-
 
 #endif // JSON_IO_HANDLER_H

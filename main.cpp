@@ -15,86 +15,72 @@
 #include <QRandomGenerator>
 #include <memory>
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     QApplication a(argc, argv);
 
-    // Main window
     MainWindow w;
 
-    // File path for JSON data
     QString filePath = QDir::toNativeSeparators(QDir::cleanPath("D:/projects/MatchMakingApp/data.json"));
 
-    // Initialize IO handler
     JsonIOHandler ioHandler(filePath);
 
-    // Create registries
     auto userRegistry = std::make_unique<UserRegistry>();
     auto gameRegistry = std::make_unique<GameRegistry>();
 
-    // Read users and games from file
     auto users = ioHandler.readUsers();
     auto games = ioHandler.readGames();
 
-    // Populate registries
-    for (const auto& user : users) {
+    for (const auto &user : users)
+    {
         userRegistry->addUser(user);
     }
-    for (const auto& game : games) {
+    for (const auto &game : games)
+    {
         gameRegistry->addGame(game);
     }
 
-    // Create user pool
     auto userPoolManager = std::make_unique<UserPoolManager>();
-    for (const auto& user : users) {
+    for (const auto &user : users)
+    {
         userPoolManager->addUser(user.getUsername());
     }
 
-    // Initialize matchmaking engine
     auto matchmakingEngine = std::make_unique<MatchmakingEngine>(
         userPoolManager.get(),
         userRegistry.get(),
         gameRegistry.get(),
-        new GameExecutor // Ensure thread-safe execution
-    );
+        new GameExecutor);
 
-    // Models
     auto dashboardModel = std::make_unique<DashboardModel>(gameRegistry.get(), userRegistry.get());
     auto userTableModel = std::make_unique<UserTableModel>(userRegistry.get());
 
-    // Widgets
     auto dashboardWidget = new DashboardWidget(dashboardModel.get());
     auto userTableWidget = new UserTableWidget(userTableModel.get(), dashboardModel.get());
 
-    // Toolbar
     auto appToolbar = new AppToolbar;
 
-    // Setup main window
     w.setupWindow(userTableWidget, dashboardWidget, appToolbar);
-    w.resize(1200, 600); // Default size
+    w.resize(1200, 600);
     w.show();
 
-    QTimer* timer = new QTimer();
-    QObject::connect(timer, &QTimer::timeout, [&]() {
+    QTimer *timer = new QTimer();
+    QObject::connect(timer, &QTimer::timeout, [&]()
+                     {
         auto users = userRegistry->getAllUsers();
 
         if (!users.isEmpty()) {
-            // Pick a random user from the registry
             int randomIndex = QRandomGenerator::global()->bounded(users.size());
             const QString& username = users[randomIndex].getUsername();
-
+            qDebug() << "Requesting match for user:" << username;
             matchmakingEngine->requestMatch(username);
-
-            qDebug() << "Requested match for user:" << username;
         } else {
             qDebug() << "No users available in the registry.";
-        }
-    });
+        } });
 
-    // Start the timer, firing every 2 seconds
     timer->start(2000);
 
-    // Start matchmaking engine in the background
-    matchmakingEngine->start(100);
+    matchmakingEngine->start(2000);
 
     return a.exec();
 }

@@ -2,7 +2,8 @@
 
 #include "engine/pool/user_pool_manager.h"
 
-class TestUserPoolManager : public QObject {
+class TestUserPoolManager final : public QObject
+{
     Q_OBJECT
 
 private slots:
@@ -13,7 +14,8 @@ private slots:
     void testGetUserState();
 };
 
-void TestUserPoolManager::testAddUser() {
+void TestUserPoolManager::testAddUser()
+{
     UserPoolManager pool;
     pool.addUser("john_doe");
     QSet<QString> freeUsers = pool.getUsersByState(UserState::Free);
@@ -21,7 +23,8 @@ void TestUserPoolManager::testAddUser() {
     QVERIFY(freeUsers.contains("john_doe"));
 }
 
-void TestUserPoolManager::testRemoveUser() {
+void TestUserPoolManager::testRemoveUser()
+{
     UserPoolManager pool;
     pool.addUser("john_doe");
     pool.removeUser("john_doe");
@@ -30,7 +33,8 @@ void TestUserPoolManager::testRemoveUser() {
     QVERIFY(!freeUsers.contains("john_doe"));
 }
 
-void TestUserPoolManager::testChangeUserState() {
+void TestUserPoolManager::testChangeUserState()
+{
     UserPoolManager pool;
     pool.addUser("john_doe");
     pool.changeUserState("john_doe", UserState::Waiting);
@@ -42,7 +46,8 @@ void TestUserPoolManager::testChangeUserState() {
     QVERIFY(waitingUsers.contains("john_doe"));
 }
 
-void TestUserPoolManager::testGetUsersByState() {
+void TestUserPoolManager::testGetUsersByState()
+{
     UserPoolManager pool;
     pool.addUser("john_doe", UserState::Busy);
     QSet<QString> busyUsers = pool.getUsersByState(UserState::Busy);
@@ -51,7 +56,8 @@ void TestUserPoolManager::testGetUsersByState() {
     QVERIFY(busyUsers.size() == 1);
 }
 
-void TestUserPoolManager::testGetUserState() {
+void TestUserPoolManager::testGetUserState()
+{
     UserPoolManager pool;
     pool.addUser("john_doe", UserState::Waiting);
     QCOMPARE(pool.getUserState("john_doe"), UserState::Waiting);

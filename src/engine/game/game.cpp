@@ -3,7 +3,7 @@
 Game::Game(const QString& name, const QString& execPath)
     : m_name(name), m_executablePath(execPath) {}
 
-void Game::setExecutable(const QString& executablePath) {
+void Game::setExecutablePath(const QString& executablePath) {
     m_executablePath = executablePath;
 }
 

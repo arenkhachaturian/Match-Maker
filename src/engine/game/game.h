@@ -4,27 +4,27 @@
 #include <QString>
 #include <QHash>
 
-class Game {
+class Game final
+{
 public:
-    explicit Game(const QString& name, const QString& execPath = QString{});
+    explicit Game(const QString &name, const QString &execPath = QString{});
 
-    // Sets the path to the game executable
-    void setExecutable(const QString& executablePath);
+    void setExecutablePath(const QString &executablePath);
 
-    // Getters
-    const QString& getName() const;
-    const QString& getExecutablePath() const;
+    const QString &getName() const;
+    const QString &getExecutablePath() const;
 
-    bool operator==(const Game& other) const;
+    bool operator==(const Game &other) const;
 
-    friend uint qHash(const Game& game, uint seed);
+    friend uint qHash(const Game &game, uint seed);
 
 private:
     QString m_name;
     QString m_executablePath;
 };
 
-inline uint qHash(const Game& game, uint seed = 0) {
+inline uint qHash(const Game &game, uint seed = 0)
+{
     return qHash(game.getName(), seed);
 }
 

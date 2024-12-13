@@ -1,32 +1,32 @@
 #ifndef GAME_REGISTRY_H
 #define GAME_REGISTRY_H
 
+#include <memory>
+#include "engine/game/game.h"
 #include <QObject>
 #include <QString>
 #include <QSet>
-#include <memory>
-#include "engine/game/game.h"
 
-class GameRegistry : public QObject {
+class GameRegistry final : public QObject
+{
     Q_OBJECT
 
 public:
-    explicit GameRegistry(QObject* parent = nullptr);
+    explicit GameRegistry(QObject *parent = nullptr);
 
-    bool addGame(const Game& newGame);
-    bool removeGame(const QString& gameName);
+    bool addGame(const Game &newGame);
+    bool removeGame(const QString &gameName);
 
-    std::shared_ptr<const Game> getGame(const QString& name) const;
+    const Game& getGame(const QString &name) const;
 
-    // Get all games
-    const QSet<Game>& getAllGames() const;
+    const QSet<Game> &getAllGames() const;
 
 signals:
-    void gameAdded(const QString& name);
-    void gameRemoved(const QString& name);
+    void gameAdded(const QString &name);
+    void gameRemoved(const QString &name);
 
 private:
-    QSet<Game> m_games; // QSet of Game objects
+    QSet<Game> m_games;
 };
 
 #endif // GAME_REGISTRY_H

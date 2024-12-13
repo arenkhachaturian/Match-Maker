@@ -6,20 +6,21 @@
 
 class DashboardModel;
 
-class DashboardWidget : public QWidget {
+class DashboardWidget : public QWidget
+{
     Q_OBJECT
 
 public:
-    explicit DashboardWidget(DashboardModel* model, QWidget* parent = nullptr);
+    explicit DashboardWidget(DashboardModel *model, QWidget *parent = nullptr);
     void saveDashboardToFile();
 
 private slots:
-    void showContextMenu(const QPoint& pos); // Show context menu
-    void saveGameRatingsToFile(const QString& gameName); // Save game ratings to file
+    void showContextMenu(const QPoint &pos);
+    void saveGameRatingsToFile(const QString &gameName);
 
 private:
-    QTreeView* m_treeView;
-    DashboardModel* m_model;
+    QTreeView *m_treeView;
+    DashboardModel *m_model;
 };
 
 #endif // DASHBOARD_WIDGET_H

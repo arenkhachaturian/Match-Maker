@@ -1,17 +1,17 @@
 #ifndef DASHBOARD_MODEL_H
 #define DASHBOARD_MODEL_H
 
-#include <QAbstractItemModel>
 #include "engine/game/game_registry.h"
 #include "engine/user/user_registry.h"
+#include <QAbstractItemModel>
 
-class DashboardModel : public QAbstractItemModel {
+class DashboardModel final : public QAbstractItemModel {
     Q_OBJECT
 
 public:
     explicit DashboardModel(GameRegistry* gameRegistry, UserRegistry* userRegistry, QObject* parent = nullptr);
 
-    std::shared_ptr<const Game> getGame(const QString& gameName) const;
+    const Game& getGame(const QString& gameName) const;
     QStringList getAllGameNames() const;
 
     QModelIndex index(int row, int column, const QModelIndex& parent = QModelIndex()) const override;
@@ -30,15 +30,15 @@ private:
     UserRegistry* m_userRegistry;
 
     struct TreeNode {
-        QString gameName; // For root nodes
-        QString username; // For user nodes
-        QString rating;   // For user nodes
+        QString gameName;
+        QString username;
+        QString rating;
         QVector<TreeNode*> children;
     };
 
-    QVector<TreeNode*> m_rootNodes; // Root nodes are games
+    QVector<TreeNode*> m_rootNodes; // game as root node
 
-    void buildTree(); // Helper to build the tree structure
+    void buildTree();
 };
 
 #endif // DASHBOARD_MODEL_H

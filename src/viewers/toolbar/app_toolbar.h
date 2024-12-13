@@ -5,11 +5,12 @@
 #include <QAction>
 #include <QWidget>
 
-class AppToolbar : public QToolBar {
+class AppToolbar final : public QToolBar
+{
     Q_OBJECT
 
 public:
-    explicit AppToolbar(QWidget* parent = nullptr);
+    explicit AppToolbar(QWidget *parent = nullptr);
 
 signals:
     void saveDashboardRequested();

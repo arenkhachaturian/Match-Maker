@@ -8,10 +8,11 @@
 
 class DashboardModel;
 
-class DashboardSerializer {
+class DashboardSerializer
+{
 public:
-    static QJsonDocument serializeToJson(const DashboardModel* model, const QString& gameName);
-    static QJsonDocument serializeToJson(const DashboardModel* model);
+    static QJsonDocument serializeToJson(const DashboardModel *model, const QString &gameName);
+    static QJsonDocument serializeToJson(const DashboardModel *model);
 };
 
 #endif // DASHBOARD_SERIALIZER_H

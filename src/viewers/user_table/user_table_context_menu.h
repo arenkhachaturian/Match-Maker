@@ -5,7 +5,7 @@
 #include <QObject>
 #include <QMenu>
 
-class UserTableContextMenu : public QObject {
+class UserTableContextMenu final : public QObject {
     Q_OBJECT
 
 public:

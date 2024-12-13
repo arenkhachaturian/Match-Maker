@@ -2,14 +2,14 @@
 #include <QSignalSpy>
 #include "engine/game/game.h"
 
-class TestGame : public QObject
+class TestGame final : public QObject
 {
     Q_OBJECT
 
 private slots:
-    void testConstructor();       // Test the constructor
-    void testSetName();           // Test setting and getting the game name
-    void testExecutablePath();    // Test setting and getting the executable path
+    void testConstructor();
+    void testSetName();
+    void testExecutablePath();
 };
 
 void TestGame::testConstructor() {
@@ -23,16 +23,12 @@ void TestGame::testConstructor() {
 void TestGame::testSetName() {
     Game game("Initial Name");
     QCOMPARE(game.getName(), QString("Initial Name"));
-
-    // Assuming setName is implemented in Game
-    // game.setName("Updated Name");
-    // QCOMPARE(game.getName(), QString("Updated Name"));
 }
 
 void TestGame::testExecutablePath() {
     Game ticTacToe("Tic Tac Toe");
-    ticTacToe.setExecutable("/path/to/executable");
-    QCOMPARE(ticTacToe.getExecutablePath(), QString("/path/to/executable"));
+    ticTacToe.setExecutablePath("/fake/path");
+    QCOMPARE(ticTacToe.getExecutablePath(), QString("/fake/path"));
 }
 
 QTEST_MAIN(TestGame)

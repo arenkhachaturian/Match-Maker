@@ -4,7 +4,7 @@
 #include "engine/game/game.h"
 #include "engine/user/user.h"
 
-class TestJsonIOHandler : public QObject
+class TestJsonIOHandler final : public QObject
 {
     Q_OBJECT
 
